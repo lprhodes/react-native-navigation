@@ -2,6 +2,7 @@ const React = require('react');
 require('react-native');
 const renderer = require('react-test-renderer');
 const { Provider } = require('react-redux');
+const { Navigation } = require('../../lib/dist/index');
 
 describe('redux support', () => {
   let MyConnectedComponent;
@@ -9,6 +10,7 @@ describe('redux support', () => {
 
   beforeEach(() => {
     MyConnectedComponent = require('./MyComponent');
+    Navigation.registerComponent('ScreenName', () => MyConnectedComponent);
     store = require('./MyStore');
   });
 
